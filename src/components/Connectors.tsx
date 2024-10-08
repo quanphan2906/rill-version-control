@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDown, ChevronRight, Database, Folder } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import SectionHeader from "./SectionHeader";
+import { FileUI } from "./File";
 
 export default function Connectors() {
 	const [isConnectorsOpen, setIsConnectorsOpen] = useState(false);
@@ -17,10 +18,10 @@ export default function Connectors() {
 				isOpen={isConnectorsOpen}
 				title="CONNECTORS"
 			/>
-			<div className={isConnectorsOpen ? "px-2 mt-1 mb-2" : ""}>
+			<div className={isConnectorsOpen ? "mt-1 mb-2" : ""}>
 				{isConnectorsOpen && (
 					<div className="space-y-1">
-						<div className="flex items-center py-1">
+						<FileUI>
 							<ChevronDown className="mr-1 h-4 w-4" />
 							<Database className="mr-2 h-4 w-4" />
 							<span>duckdb</span>
@@ -30,21 +31,17 @@ export default function Connectors() {
 							>
 								OLAP
 							</Badge>
-						</div>
-						<div className="pl-6 space-y-1">
-							<div className="flex items-center py-1">
-								<ChevronDown className="mr-1 h-4 w-4" />
-								<Database className="mr-2 h-4 w-4" />
-								<span>main_db</span>
-							</div>
-							<div className="pl-6 space-y-1">
-								<div className="flex items-center py-1">
-									<ChevronRight className="mr-1 h-4 w-4" />
-									<Folder className="mr-2 h-4 w-4" />
-									<span>main</span>
-								</div>
-							</div>
-						</div>
+						</FileUI>
+						<FileUI sx="pl-8">
+							<ChevronDown className="mr-1 h-4 w-4" />
+							<Database className="mr-2 h-4 w-4" />
+							<span>main_db</span>
+						</FileUI>
+						<FileUI sx="pl-12">
+							<ChevronRight className="mr-1 h-4 w-4" />
+							<Folder className="mr-2 h-4 w-4" />
+							<span>main</span>
+						</FileUI>
 					</div>
 				)}
 			</div>

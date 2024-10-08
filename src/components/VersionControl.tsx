@@ -73,13 +73,16 @@ export default function VersionControl() {
 
 							<div className="space-y-1">
 								<FileUI sx="text-green-500">
-									new_model.sql
+									<File className="mr-2 h-4 w-4" />
+									<span>new_model.sql</span>
 								</FileUI>
 								<FileUI sx="text-orange-500">
-									modified_source.sql
+									<File className="mr-2 h-4 w-4" />
+									<span>modified_source.yaml</span>
 								</FileUI>
 								<FileUI sx="text-red-500">
-									deleted_dashboard.sql
+									<File className="mr-2 h-4 w-4" />
+									<span>deleted_dashboard.yaml</span>
 								</FileUI>
 							</div>
 						</div>
