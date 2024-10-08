@@ -11,6 +11,7 @@ import { CustomActionSelect } from "@/components/CustomActionSelect";
 import {} from "@radix-ui/react-dialog";
 import ErrorModal from "./BranchSwitchErrorModal";
 import SectionHeader from "./SectionHeader";
+import { FileUI } from "./File";
 
 export default function VersionControl() {
 	const [isVersionControlOpen, setIsVersionControlOpen] = useState(false);
@@ -38,51 +39,48 @@ export default function VersionControl() {
 					title="VERSION CONTROL"
 				/>
 
-				<div className="px-2 my-2 mt-1">
+				<div className="my-2 mt-1">
 					{isVersionControlOpen && (
 						<div className="space-y-4">
-							<Select
-								onValueChange={handleBranchChange}
-								value={currentBranch}
-							>
-								<SelectTrigger className="w-full">
-									<SelectValue placeholder="Select branch" />
-								</SelectTrigger>
-								<SelectContent>
-									<SelectItem value="main">main</SelectItem>
-									<SelectItem value="develop">
-										develop
-									</SelectItem>
-									<SelectItem value="feature/new-dashboard">
-										feature/new-dashboard
-									</SelectItem>
-								</SelectContent>
-							</Select>
+							<div className="px-2">
+								<Select
+									onValueChange={handleBranchChange}
+									value={currentBranch}
+								>
+									<SelectTrigger className="w-full">
+										<SelectValue placeholder="Select branch" />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectItem value="main">
+											main
+										</SelectItem>
+										<SelectItem value="develop">
+											develop
+										</SelectItem>
+										<SelectItem value="feature/new-dashboard">
+											feature/new-dashboard
+										</SelectItem>
+									</SelectContent>
+								</Select>
+							</div>
 
-							<CustomActionSelect
-								value={currentAction}
-								onChange={setCurrentAction}
-							/>
+							<div className="px-2">
+								<CustomActionSelect
+									value={currentAction}
+									onChange={setCurrentAction}
+								/>
+							</div>
 
 							<div className="space-y-1">
-								<div className="flex items-center py-1">
-									<File className="mr-2 h-4 w-4 text-green-500" />
-									<span className="text-green-500">
-										new_feature.js
-									</span>
-								</div>
-								<div className="flex items-center py-1">
-									<File className="mr-2 h-4 w-4 text-orange-500" />
-									<span className="text-orange-500">
-										modified_file.css
-									</span>
-								</div>
-								<div className="flex items-center py-1">
-									<File className="mr-2 h-4 w-4 text-red-500" />
-									<span className="text-red-500">
-										deleted_component.tsx
-									</span>
-								</div>
+								<FileUI sx="text-green-500">
+									new_model.sql
+								</FileUI>
+								<FileUI sx="text-orange-500">
+									modified_source.sql
+								</FileUI>
+								<FileUI sx="text-red-500">
+									deleted_dashboard.sql
+								</FileUI>
 							</div>
 						</div>
 					)}
