@@ -7,7 +7,7 @@ import VersionControl from "./VersionControl";
 
 export function LeftSideBar() {
 	return (
-		<div className="h-100 w-64 bg-background border-r px-2">
+		<div className="h-100 w-64 bg-background border-r">
 			<ProjectTitle />
 			<FileExplorer />
 			<Connectors />

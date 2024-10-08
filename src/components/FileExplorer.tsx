@@ -1,13 +1,14 @@
 // components/FileExplorer.js
-import { Plus, ChevronRight, Folder, File } from "lucide-react";
+import { Plus, ChevronRight, Folder, File, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function FileExplorer() {
 	return (
 		<div className="p-2">
-			<Button variant="outline" className="w-full justify-start">
+			<Button className="w-full text-center">
 				<Plus className="mr-2 h-4 w-4" />
 				Add
+				<ChevronDown className="ml-2 h-4 w-4" />
 			</Button>
 
 			<div className="space-y-1 py-2">
